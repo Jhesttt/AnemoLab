@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- custom font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <link rel="icon" type="image/x-icon" href="img/wind.png">
+    <title>AnemoLab</title>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 0px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: black;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(44, 255, 139);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: rgb(0, 141, 63);
+        }
+
+
+
+        body{
+            background: black;
+            font-family: "Montserrat";
+            
+        }
+        #nav {
+            background: rgba(0,0,0,0.6)
+        }
+        #logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            text-shadow: 0px 3px rgba(0, 141, 63, 0.767) ;
+        }
+        header{
+            background: url(img/home.jpg);
+            background-size: cover;
+            background-position: center;
+            min-height: 675px;
+        }
+        @media screen and (max-width: 990px) {
+            header {
+                min-height: 525px;
+                background-position: right;
+            }
+            #gallery-row {
+                margin-block: 0px;
+            }
+            #more-photos {
+                margin-block: 20px;
+            }
+            #gallery-img {
+                padding-block: 10px;
+            }
+            
+        }
+
+        #welcome {
+            position: relative;
+            top: 150px;
+        }
+        #head {
+            font-weight: 800;
+            font-size: 7rem;
+            text-shadow: 0px 5px rgba(0, 141, 63, 0.767);
+            margin-bottom: 0px;
+        }
+        #subhead {
+            margin-top: 0px;
+            font-size: 1.5rem;
+            text-shadow: 2px 2px rgba(0, 0,0, 0.5);
+        }
+        #head-nav {
+            color: black;
+            font-weight: 800;
+            font-size: 2rem;
+            text-shadow: 0px 3px rgba(0, 141, 63, 0.767);
+            margin-bottom: 0px;
+        }
+        #subhead-nav {
+            color: black;
+            font-size: 1rem;
+            margin-top: 0px;
+        }
+        #sidenav-con {
+            margin-left: 30px;
+        }
+
+        .sidenav li {
+            line-height: 20px;
+        }
+        nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
+            margin-top: -2px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        #chars-section {
+            font-weight: 700;
+            text-shadow: 0px 3px rgba(0, 0, 0, 0.767);
+            color: rgb(44, 255, 139);
+            margin-bottom: 0px;
+        }
+
+        #five-stars {
+            font-weight: 600;
+            font-size: 2rem;
+            text-shadow: 0px 3px rgba(0, 0, 0, 0.767);
+            margin-top: 0px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background-color: rgba(0, 0,0, 0.8);
+        }
+        .character-name {
+            font-weight: 700;
+            color: white;
+            text-shadow: 0px 5px rgba(0, 141, 63, 0.767);
+            margin-block: 0px;
+        }
+        .character-info {
+            color: white;
+            text-shadow: 0px 3px rgba(0, 0, 0, 0.767);
+        }   
+        #character-content {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+        #character-buttons {
+            margin-block: 10px;
+            border-radius: 20px;
+            background-color: rgb(0, 141, 63);
+            transition: 0.15s;
+        }
+        #character-buttons:hover {
+            background-color: rgb(0, 180, 81);
+        }
+        #four-stars {
+            font-weight: 600;
+            font-size: 2rem;
+            text-shadow: 0px 3px rgba(0, 0, 0, 0.767);
+            margin-top: 0px;
+            margin-bottom: 30px;
+        }
+        
+        .parallax-container {
+            border-top: 30px;
+            border-bottom: 30px;
+            border-left: 0px;
+            border-right: 0px;
+            border-style: solid;
+            border-color: rgb(0, 141, 63);
+            height: 340px;
+            margin-top: 90px ;
+            margin-bottom: 20px;
+            box-shadow: inset 0px 0px 15px rgba(0,0,0,0.8);
+        }
+
+        #news-section {
+            font-weight: 700;
+            text-shadow: 0px 3px rgba(0, 0, 0, 0.767);
+            color: rgb(44, 255, 139);
+            margin-bottom: 0px;
+        }
+        #news-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0px 3px rgba(0, 0, 0, 0.767);
+            margin-top: 0px;
+        }
+        .iframe-container {
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9*/
+            position: relative;
+            }
+
+            .iframe-container iframe {
+            border: 0;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        #gallery-section {
+            font-weight: 700;
+            text-shadow: 0px 3px rgba(0, 0, 0, 0.767);
+            color: rgb(44, 255, 139);
+        }
+        #more-photos {
+            border-radius: 20px;
+            background-color: rgb(0, 141, 63);
+        }
+        #login-section {
+            font-weight: 700;
+            text-shadow: 0px 3px rgba(0, 0, 0, 0.767);
+            color: rgb(44, 255, 139);
+            margin-bottom: 0px;
+        }
+        #tab {
+            font-weight: 600;
+        }
+        .tabs .indicator {
+            background-color: rgb(0, 141, 63);;
+        }
+        .tabs .tab a:focus, .tabs .tab a:focus.active{
+            background: transparent;
+        }
+        #login-button, #signup-button {
+            border-radius: 20px;
+            background-color: rgb(0, 141, 63);
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        input:not([type]):focus:not([readonly]),
+        input[type="text"]:not(.browser-default):focus:not([readonly]),
+        input[type="password"]:not(.browser-default):focus:not([readonly]),
+        input[type="email"]:not(.browser-default):focus:not([readonly]),
+        input[type="url"]:not(.browser-default):focus:not([readonly]),
+        input[type="time"]:not(.browser-default):focus:not([readonly]),
+        input[type="date"]:not(.browser-default):focus:not([readonly]),
+        input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+        input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+        input[type="tel"]:not(.browser-default):focus:not([readonly]),
+        input[type="number"]:not(.browser-default):focus:not([readonly]),
+        input[type="search"]:not(.browser-default):focus:not([readonly]),
+        textarea.materialize-textarea:focus:not([readonly]) {
+            border-bottom: 1px solid rgb(0, 141, 63);
+        }
+        
+        input:not([type]):focus:not([readonly]) + label,
+      input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
+      input[type="password"]:not(.browser-default):focus:not([readonly])
+        + label,
+      input[type="email"]:not(.browser-default):focus:not([readonly]) + label,
+      input[type="url"]:not(.browser-default):focus:not([readonly]) + label,
+      input[type="time"]:not(.browser-default):focus:not([readonly]) + label,
+      input[type="date"]:not(.browser-default):focus:not([readonly]) + label,
+      input[type="datetime"]:not(.browser-default):focus:not([readonly])
+        + label,
+      input[type="datetime-local"]:not(.browser-default):focus:not([readonly])
+        + label,
+      input[type="tel"]:not(.browser-default):focus:not([readonly]) + label,
+      input[type="number"]:not(.browser-default):focus:not([readonly]) + label,
+      input[type="search"]:not(.browser-default):focus:not([readonly]) + label,
+      textarea.materialize-textarea:focus:not([readonly]) + label {
+        color: rgb(44, 255, 139);
+      }
+
+      #about-us {
+        font-weight: 600;
+      }
+
+      #footer-links {
+        color: rgb(153, 153, 153);
+        transition: 0.15s;
+      }
+      #footer-links:hover {
+        color: whitesmoke;
+      }
+      .page-footer {
+        background-color: rgb(14, 14, 14) ;
+      }
+
+      #links {
+        transition: 0.4s;
+      }
+      #links:hover {
+        color: rgb(44, 255, 139);
+      }
+
+      .materialboxed {
+        border-radius: 10px;
+      }
+      #voice-play {
+        background-color: rgb(0, 141, 63);
+        margin-top: 5px;
+      }
+      .valign-wrapper {
+        margin-top: 20px;
+      }
+
+      ::selection {
+        color:white;
+        background-color: rgb(0, 122, 55);
+      }
+    </style>
+</head>
+<body>
+
+    <!-- Front Page, Navigation, and Side Navigation -->
+
+    <header>
+        <nav class="nav-wrapper z-depth-2" id="nav">
+            <div class="container">
+                <a href="" class="brand-logo center hide-on-large-only" id="logo">AnemoLab</a>
+                <a href="" class="sidenav-trigger" data-target="mobile-menu">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="hide-on-med-and-down ">
+                    <li><a href="#" id="links">HOME</a></li>
+                    <li><a href="#characters" id="links">CHARACTERS</a></li>
+                    <li><a href="#news" id="links">NEWS</a></li>
+                    <li><a href="#gallery" id="links">GALLERY</a></li>
+                    <li><a href="#log-in" id="links">LOGIN</a></li>
+                </ul>
+                <ul class="hide-on-med-and-down right">
+                    <li><a href="#" class="tooltipped btn-floating btn-small transparent" data-tooltip="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a></li>
+                    <li><a href="#" class="tooltipped btn-floating btn-small transparent" data-tooltip="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a></li>
+                    <li><a href="#" class="tooltipped btn-floating btn-small transparent" data-tooltip="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a></li>
+                    <li><a href="#" class="tooltipped btn-floating btn-small transparent" data-tooltip="Discord Server">
+                        <i class="fab fa-discord"></i>
+                    </a></li>
+                </ul>
+                <ul class="sidenav grey lighten-2" id="mobile-menu">
+                    <li><div class="container" id="sidenav-con">
+                        <h2 id="head-nav">AnemoLab</h2>
+                        <p id="subhead-nav">Database & Community</p>
+                    </div></li>
+                    <li><div class="divider"></div></li>
+                    <li><a class="waves-effect" href="#">Home</a></li>
+                    <li><a class="waves-effect" href="#characters">Characters</a></li>
+                    <li><a class="waves-effect" href="#news">News</a></li>
+                    <li><a class="waves-effect" href="#gallery">Gallery</a></li>
+                    <li><a class="waves-effect" href="#log-in">Log in</a></li>
+                    <li><div class="divider"></div></li>
+                    <li><a class="subheader">Social Medias</a></li>
+                    <li><a href="#!" class="waves-effect"><i class="fab fa-facebook"></i>Facebook</a></li>
+                    <li><a href="#!" class="waves-effect"><i class="fab fa-instagram"></i>Instagram</a></li>
+                    <li><a href="#!" class="waves-effect"><i class="fab fa-twitter"></i>Twitter</a></li>
+                    <li><a href="#!" class="waves-effect"><i class="fab fa-discord"></i>Discord</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container hide-on-med-and-down" id="welcome">
+            <h1 class="white-text" id="head">AnemoLab</h1>
+            <p class="white-text" id="subhead">Genshin Impact Database & Community</p>
+        </div>
+    </header>
+
+    <!-- Characters -->
+
+    <section class="container section scrollspy" id="characters">
+        <h2 id="chars-section">Characters</h2>
+        <h3 class="white-text" id="five-stars">5 Star Anemo Characters</h3>
+            
+        <div class="card section" id="character-card">
+            <div class="row" id="name-play">
+                <div class="col s12 l7">
+                    <img src="img/Characters/jean.png" alt="Jean" class="responsive-img" id="character-img">
+                </div>
+                <div class="col s12 l5" id="character-content">
+                    <div class="row valign-wrapper">
+                        <div class="col s10 m11 l9">
+                            <h3 class="character-name">Jean</h3>
+                        </div>
+                        <div class="col s2 m1 l3">
+                            <a class="btn-floating btn waves-effect waves-light center" id="voice-play" onmousedown="jean.play()">
+                                <i class="material-icons center white-text">
+                                    play_arrow
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                    <hr>
+                    <p class="character-info">
+                        As the Acting Grand Master of the Knights, Jean has always been devoted to her duties and maintaining peace in Mondstadt.
+                        <br> <br>
+                        She had taken precautions long before the onset of Stormterror's assault, and she will guard Mondstadt with her life as always.
+                    </p>
+                    <p class="character-info">
+                        『 Wind, hear me! 』
+                    </p>
+                    <a class="waves-effect waves-light btn-small" id="character-buttons"><i class="material-icons left">chevron_right</i>Recommended Builds</a>
+                    <br>
+                    <a class="waves-effect waves-light btn-small" id="character-buttons"><i class="material-icons left">chevron_right</i>Talents & Constellations</a>
+                </div>                
+            </div>
+        </div>
+        <div class="card section" id="character-card">
+            <div class="row">
+                <div class="col s12 l5 " id="character-content">
+                    <div class="row valign-wrapper">
+                        <div class="col s10 m11 l9">
+                            <h3 class="character-name">Venti</h3>
+                        </div>
+                        <div class="col s2 m1 l3">
+                            <a class="btn-floating btn waves-effect waves-light center" id="voice-play" onmousedown="venti.play()">
+                                <i class="material-icons center white-text">
+                                    play_arrow
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                    <hr>
+                    <p class="character-info">
+                        A bard that seems to have arrived on some unknown wind - sometimes sings songs as old as the hills, and other times recites poems fresh and new.
+                        <br><br>
+                        Likes apples and lively places, but is not a fan of cheese or anything sticky. When using his Anemo power to control the wind, it often appers as feathers, as he's fond of that which appears light and breezy.
+                    </p>
+                    <p class="character-info">
+                        『 Sure, I'll play you another tune, but it'll cost you an apple. 』
+                    </p>
+                    <a class="waves-effect waves-light btn-small" id="character-buttons"><i class="material-icons left">chevron_right</i>Recommended Builds</a>
+                    <br>
+                    <a class="waves-effect waves-light btn-small" id="character-buttons"><i class="material-icons left">chevron_right</i>Talents & Constellations</a>
+                </div>        
+                <div class="col s12 l7">
+                    <img src="img/Characters/venti.png" alt="Venti" class="responsive-img" id="character-img">
+                </div>
+                        
+            </div>
+        </div>
+        <div class="card section" id="character-card">
+            <div class="row">
+                <div class="col s12 l7">
+                    <img src="img/Characters/xiao.png" alt="Xiao" class="responsive-img" id="character-img">
+                </div>
+                <div class="col s12 l5 " id="character-content">
+                    <div class="row valign-wrapper">
+                        <div class="col s10 m11 l9">
+                            <h3 class="character-name">Xiao</h3>
+                        </div>
+                        <div class="col s2 m1 l3">
+                            <a class="btn-floating btn waves-effect waves-light center" id="voice-play" onmousedown="xiao.play()">
+                                <i class="material-icons center white-text">
+                                    play_arrow
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                    <hr>
+                    <p class="character-info">
+                        One of the mighty and illuminated adepti guarding Liyue, also heralded as the "Vigilant Yaksha."
+                        <br><br>
+                        He is especially fond of Wangshu Inn's Almond Tofu. This is because it tastes just like the sweet dreams he used to devour.
+                    </p>
+                    <p class="character-info">
+                        『 I'm willing to protect you. But don't think about getting close, and stay out of my way, or all that awaits you is regret. 』
+                    </p>
+                    <a class="waves-effect waves-light btn-small" id="character-buttons"><i class="material-icons left">chevron_right</i>Recommended Builds</a>
+                    <br>
+                    <a class="waves-effect waves-light btn-small" id="character-buttons"><i class="material-icons left">chevron_right</i>Talents & Constellations</a>
+                </div>                
+            </div>
+        </div>
+        <div class="card section" id="character-card">
+            <div class="row">
+                <div class="col s12 l5 " id="character-content">
+                    <div class="row valign-wrapper">
+                        <div class="col s10 m11 l9">
+                            <h3 class="character-name">Kazuha</h3>
+                        </div>
+                        <div class="col s2 m1 l3">
+                            <a class="btn-floating btn waves-effect waves-light center" id="voice-play" onmousedown="kazuha.play()">
+                                <i class="material-icons center white-text">
+                                    play_arrow
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                    <hr>
+                    <p class="character-info">
+                        A wandering samurai from Inazuma with a modest and gentle personality. Beneath a youthful and carefree demeanor lies a heart that hides a great many burdens from the past. Seemingly easygoing, Kazuha has his own code of conduct.
+                    </p>
+                    <p class="character-info">
+                        『 There are leaves around - and I know just the tune to accompany them, if you wish to hear it. 』
+                    </p>
+                    <a class="waves-effect waves-light btn-small" id="character-buttons"><i class="material-icons left">chevron_right</i>Recommended Builds</a>
+                    <br>
+                    <a class="waves-effect waves-light btn-small" id="character-buttons"><i class="material-icons left">chevron_right</i>Talents & Constellations</a>
+                </div>
+                <div class="col s12 l7">
+                    <img src="img/Characters/kazuha.png" alt="Kazuha" class="responsive-img" id="character-img">
+                </div>                
+            </div>
+        </div>
+
+        <h3 class="white-text" id="four-stars">4 Star Anemo Characters</h3>
+
+        <div class="card section" id="character-card">
+            <div class="row">
+                <div class="col s12 l7">
+                    <img src="img/Characters/sucrose.png" alt="Sucrose" class="responsive-img" id="character-img">
+                </div>
+                <div class="col s12 l5" id="character-content">
+                    <div class="row valign-wrapper">
+                        <div class="col s10 m11 l9">
+                            <h3 class="character-name">Sucrose</h3>
+                        </div>
+                        <div class="col s2 m1 l3">
+                            <a class="btn-floating btn waves-effect waves-light center" id="voice-play" onmousedown="sucrose.play()">
+                                <i class="material-icons center white-text">
+                                    play_arrow
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                    <hr>
+                    <p class="character-info">
+                        An alchemist with an insatiable curiosity towards the world and everything in it. Attached to the Knights of Favonius as an assistant to Albedo, her area of focus is "bio-alchemy". She strives to enrich the world by transforming living things with the power of alchemy.
+                        <br><br>
+                        Granted, the products of her research sometimes prove to be more weird than wonderful - but on the whole, she has made monumental contributions to the field of bio-alchemy.
+                    </p>
+                    <p class="character-info">
+                        『 Finally! A breakthrough in my bio-alchemy research. 』
+                    </p>
+                    <a class="waves-effect waves-light btn-small" id="character-buttons"><i class="material-icons left">chevron_right</i>Recommended Builds</a>
+                    <br>
+                    <a class="waves-effect waves-light btn-small" id="character-buttons"><i class="material-icons left">chevron_right</i>Talents & Constellations</a>
+                </div>                
+            </div>
+        </div>
+        <div class="card section" id="character-card">
+            <div class="row">
+                <div class="col s12 l5 " id="character-content">
+                    <div class="row valign-wrapper">
+                        <div class="col s10 m11 l9">
+                            <h3 class="character-name">Heizou</h3>
+                        </div>
+                        <div class="col s2 m1 l3">
+                            <a class="btn-floating btn waves-effect waves-light center" id="voice-play" onmousedown="heizou.play()">
+                                <i class="material-icons center white-text">
+                                    play_arrow
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                    <hr>
+                    <p class="character-info">
+                        A young prodigy detective from the Tenryou Commission. His senses are sharp and his thoughts are ingenious. No matter what unsolved case he's facing, he can get to the truth in unexpected ways.
+                    </p>
+                    <p class="character-info">
+                        『 Got a problem you can't solve? Clue me in. 』
+                    </p>
+                    <a class="waves-effect waves-light btn-small" id="character-buttons"><i class="material-icons left">chevron_right</i>Recommended Builds</a>
+                    <br>
+                    <a class="waves-effect waves-light btn-small" id="character-buttons"><i class="material-icons left">chevron_right</i>Talents & Constellations</a>
+                </div>        
+                <div class="col s12 l7">
+                    <img src="img/Characters/heizou.png" alt="Heizou" class="responsive-img" id="character-img">
+                </div>
+                        
+            </div>
+        </div>
+        <div class="card section" id="character-card">
+            <div class="row">
+                <div class="col s12 l7">
+                    <img src="img/Characters/sayu.png" alt="Sayu" class="responsive-img" id="character-img">
+                </div>
+                <div class="col s12 l5 " id="character-content">
+                    <div class="row valign-wrapper">
+                        <div class="col s10 m11 l9">
+                            <h3 class="character-name">Sayu</h3>
+                        </div>
+                        <div class="col s2 m1 l3">
+                            <a class="btn-floating btn waves-effect waves-light center" id="voice-play" onmousedown="sayu.play()">
+                                <i class="material-icons center white-text">
+                                    play_arrow
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                    <hr>
+                    <p class="character-info">
+                        Sayu, Shuumatsuban's resident ninja, is obsessed with sleeping and growing taller.
+                        <br><br>
+                        She has mastered all kinds of ninjutsu to run away and hide in pursuit of opportunities to laze around and sleep.
+                        <br><br>
+                        Such an extraordinary skillset may have very unexpected uses.
+                    </p>
+                    <p class="character-info">
+                        『 Mission accomplished! Can I go back and sleep now? 』
+                    </p>
+                    <a class="waves-effect waves-light btn-small" id="character-buttons"><i class="material-icons left">chevron_right</i>Recommended Builds</a>
+                    <br>
+                    <a class="waves-effect waves-light btn-small" id="character-buttons"><i class="material-icons left">chevron_right</i>Talents & Constellations</a>
+                </div>                
+            </div>
+        </div>
+    </section>
+
+    <!-- News -->
+
+    <section class="container section scrollspy" id="news">
+        <h2 id="news-section">News</h2>
+        <h3 id="news-title">Upcoming 3.3 characters</h3>
+        <div class="container">
+            <div class="carousel carousel-slider center">
+                <a class="carousel-item" href="#one!"><img src="img/Characters/Wanderer_(Scaramouche)_Guide.jpg" class="responsive-img"></a>
+                <a class="carousel-item" href="#two!"><img src="img/Characters/Faruzan_Guide.jpg" class="responsive-img"></a> 
+            </div>
+        </div>
+        <div class="container">
+            <p class="white-text">Scaramouche, now the Anemo-wielding Wanderer, and a newcomer named Faruzan have been announced for Genshin Impact update 3.3.
+            <br><br>
+            Hoyoverse revealed the two new characters earlier this morning. Both are Anemo users, which suggests Faruzan will be a four-star unit tied to the five-star Scaramouche's banner as a dedicated support, sort of how Gorou and Itto or Sara and Raiden are paired.
+            <br><br>
+            Scaramouche was first introduced to Genshin Impact about two years ago, almost immediately after the game's launch through a now-forgotten story event, and he was a central figure in the 2.0 Inazuma storyline as one of the Fatui Harbingers. Despite being a villain with relatively low screen time, Scaramouche has steadily built up a large and clearly ravenous fan base, as evidenced by the nearly 100,000 shares that his English Twitter reveal racked up in just a few hours.
+            <br><br>
+            Less is known about Faruzan, who we've never seen before and is simply billed as an "enigmatic machinist." A more elaborate Instagram(opens in new tab) post from Hoyoverse describes Faruzan as a brilliant engineer who's famous among local Sumeru students and known fondly as "Madam" to those seeking lessons in mechanics, despite being "shunned" in her own Haravatat household. The academia has been a major focus of Sumeru's story thus far, and it seems we'll continue to meet new students even after the region's Archon storyline concludes in update 3.2.
+            <br><br>
+            </p>
+        </div>
+        <h3 id="news-title">Version 3.3 Official Trailer</h3>
+        <div class="container center">
+            <div class="iframe-container">
+                <iframe src="https://www.youtube.com/embed/whr_O2bqcC8" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+
+    <section class="container section scrollspy" id="gallery">
+        <h2 id="gallery-section">Gallery</h2>
+        <div class="row" id="gallery-row">
+            <div class="col s12 m12 l4" id="gallery-img">
+                <img src="img/Gallery/Xiao1.jpg" alt="" class="responsive-img materialboxed">
+            </div>
+            <div class="col s12 m12 l4" id="gallery-img">
+                <img src="img/Gallery/Venti.png" alt="" class="responsive-img materialboxed">
+            </div>
+            <div class="col s12 m12 l4" id="gallery-img">
+                <img src="img/Gallery/Xiao2.png" alt="" class="responsive-img materialboxed">
+            </div>
+        </div>
+        <div class="row" id="gallery-row">
+            <div class="col s12 m12 l4" id="gallery-img">
+                <img src="img/Gallery/Kazuha1.jpg" alt="" class="responsive-img materialboxed">
+            </div>
+            <div class="col s12 m12 l4" id="gallery-img">
+                <img src="img/Gallery/Jean.jpg" alt="" class="responsive-img materialboxed">
+            </div>
+            <div class="col s12 m12 l4" id="gallery-img">
+                <img src="img/Gallery/Kazuha2.jpg" alt="" class="responsive-img materialboxed">
+            </div>
+        </div>
+        <div class="center">
+            <a class="waves-effect waves-light btn-small"  id="more-photos"><i class="material-icons right">chevron_right</i>More Photos</a>
+        </div>            
+    </section>
+    
+    <!-- Parallax -->
+
+    <div class="parallax-container hide-on-med-and-down section scrollspy" id="parallax">
+        <div class="parallax">
+            <img src="img/4nemo.jpg" alt="4nemo" class="responsive-img">
+        </div>
+    </div>
+
+    <!-- Login and Signup -->
+
+    <section class="container section scrollspy" id="log-in">
+        <div class="row">
+            <div class="col s12 l4">
+                <h2 id="login-section">Join the Community</h2>
+                <p class="white-text">Logging in only takes a few seconds. This will allow you to interact with the community. You'll also unlock the ability to share posts and contribute to the AnemoLab Gallery.</p>
+            </div>
+            <div class="col s12 l6 offset-l2">
+                <ul class="tabs black">
+                    <li class="tab col s6">
+                        <a href="#login" class="white-text" id="tab">Log In</a>
+                    </li>
+                    <li class="tab col s6">
+                        <a href="#signup" class="white-text" id="tab">Sign Up</a>
+                    </li>
+                </ul>
+                <div class="col s12 section" id="login">
+                    <form action="">
+                        <br>
+                        <div class="input-field">
+                            <i class="material-icons prefix white-text">email</i>
+                            <input type="email" id="email" class="white-text">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix white-text">lock</i>
+                            <input type="password" id="password" class="white-text">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="right">
+                            <a href="#" class="btn waves-effect waves-light" id="login-button">Login</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="col s12 section" id="signup">
+                    <form action="">
+                        <br>
+                        <div class="input-field">
+                            <i class="material-icons prefix white-text">person</i>
+                            <input type="text" id="name" class="white-text">
+                            <label for="name">Full Name</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix white-text">account_circle</i>
+                            <input type="text" id="username" class="white-text">
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix white-text">email</i>
+                            <input type="email" id="email" class="white-text">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix white-text">lock</i>
+                            <input type="password" id="password" class="white-text">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="right">
+                            <a href="#" class="btn waves-effect waves-light" id="signup-button">Sign Up</a>
+                        </div>
+                    </form>                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="page-footer">
+        <div class="container" id="footer-head">
+            <div class="row">
+                <div class="col s12 l6">
+                    <h5 class=" white-text" id="about-us">About Us</h5>
+                    <p>AnemoLab is a database website which features every anemo character in Genshin Impact. 
+                    <br><br>
+                    Additionally, AnemoLab is a forum where people who belong inside the community can interact with each other through their posts.
+                    </p>
+                </div>
+                <div class="col s12 l4 offset-l2">
+                    <ul>
+                        <li><a id="footer-links">Privacy Policy</a></li>
+                        <li><a id="footer-links">Terms of Service</a></li>
+                        <li><a id="footer-links">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container center-align">
+                Copyright &copy; AnemoLab. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScripts -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $( document ).ready(function(){
+          $('.sidenav').sidenav();
+          $('.tooltipped').tooltip();
+          $('.parallax').parallax();
+          $('.materialboxed').materialbox();
+          $('.tabs').tabs();
+          $('.scrollspy').scrollSpy({
+            scrollOffset: 0
+          });
+          $('.carousel.carousel-slider').carousel({
+                fullWidth: true,
+                indicators: true
+            });
+            setInterval(function() {
+                $('.carousel').carousel('next');
+            }, 10000);       
+        });
+        var jean = new Audio();
+        jean.src = "audio/jean.mp3";
+        var venti = new Audio();
+        venti.src = "audio/venti.mp3";
+        var xiao = new Audio();
+        xiao.src = "audio/xiao.mp3";
+        var kazuha = new Audio();
+        kazuha.src = "audio/kazuha.mp3";
+        var sucrose = new Audio();
+        sucrose.src = "audio/sucrose.mp3";
+        var heizou = new Audio();
+        heizou.src = "audio/heizou.mp3";
+        var sayu = new Audio();
+        sayu.src = "audio/sayu.mp3";
+
+      </script>
+</body>
+</html>
